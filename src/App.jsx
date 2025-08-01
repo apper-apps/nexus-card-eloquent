@@ -3,19 +3,19 @@ import React, { createContext, useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { clearUser, setUser } from "./store/userSlice";
-import Login from "@/components/pages/Login";
-import Signup from "@/components/pages/Signup";
-import Callback from "@/components/pages/Callback";
-import ErrorPage from "@/components/pages/ErrorPage";
-import ErrorPage from "@/components/pages/ErrorPage";
-import ResetPassword from "@/components/pages/ResetPassword";
-import PromptPassword from "@/components/pages/PromptPassword";
 import Sidebar from "@/components/organisms/Sidebar";
 import DealsPage from "@/components/pages/DealsPage";
+import Login from "@/components/pages/Login";
+import PromptPassword from "@/components/pages/PromptPassword";
 import SettingsPage from "@/components/pages/SettingsPage";
+import ResetPassword from "@/components/pages/ResetPassword";
+import Callback from "@/components/pages/Callback";
 import MarketingPage from "@/components/pages/MarketingPage";
+import ErrorPage from "@/components/pages/ErrorPage";
+import Signup from "@/components/pages/Signup";
 import ContactsPage from "@/components/pages/ContactsPage";
+import ReportsPage from "@/components/pages/ReportsPage";
+import { clearUser, setUser } from "@/store/userSlice";
 import { CustomPropertyProvider } from "@/contexts/CustomPropertyContext";
 
 // Create auth context

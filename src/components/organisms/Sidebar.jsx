@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from 'react-redux';
 import ApperIcon from "@/components/ApperIcon";
+import { AuthContext } from "../../App";
 
 const Sidebar = ({ isOpen, onClose }) => {
+  const { user } = useSelector((state) => state.user);
+  const { logout } = useContext(AuthContext);
 const navigation = [
     { name: "Contacts", href: "/contacts", icon: "Users" },
     { name: "Deals", href: "/deals", icon: "TrendingUp" },
@@ -52,15 +56,26 @@ const navigation = [
           </nav>
 
           {/* Footer */}
-          <div className="px-6 py-4 border-t border-gray-200">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-gradient-to-r from-accent-400 to-accent-500 rounded-full flex items-center justify-center">
-                <ApperIcon name="User" className="h-4 w-4 text-white" />
+<div className="px-6 py-4 border-t border-gray-200">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <div className="w-8 h-8 bg-gradient-to-r from-accent-400 to-accent-500 rounded-full flex items-center justify-center">
+                  <ApperIcon name="User" className="h-4 w-4 text-white" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-gray-900">
+                    {user?.firstName ? `${user.firstName} ${user.lastName}` : 'User'}
+                  </p>
+                  <p className="text-xs text-gray-500">{user?.emailAddress || 'user@example.com'}</p>
+                </div>
               </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-gray-900">Sales Team</p>
-                <p className="text-xs text-gray-500">Administrator</p>
-              </div>
+              <button
+                onClick={logout}
+                className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                title="Logout"
+              >
+                <ApperIcon name="LogOut" className="h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -120,16 +135,27 @@ const navigation = [
                 ))}
               </nav>
 
-              {/* Footer */}
+{/* Footer */}
               <div className="px-6 py-4 border-t border-gray-200">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 bg-gradient-to-r from-accent-400 to-accent-500 rounded-full flex items-center justify-center">
-                    <ApperIcon name="User" className="h-4 w-4 text-white" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-accent-400 to-accent-500 rounded-full flex items-center justify-center">
+                      <ApperIcon name="User" className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-gray-900">
+                        {user?.firstName ? `${user.firstName} ${user.lastName}` : 'User'}
+                      </p>
+                      <p className="text-xs text-gray-500">{user?.emailAddress || 'user@example.com'}</p>
+                    </div>
                   </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">Sales Team</p>
-                    <p className="text-xs text-gray-500">Administrator</p>
-                  </div>
+                  <button
+                    onClick={logout}
+                    className="p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                    title="Logout"
+                  >
+                    <ApperIcon name="LogOut" className="h-4 w-4" />
+                  </button>
                 </div>
               </div>
             </div>

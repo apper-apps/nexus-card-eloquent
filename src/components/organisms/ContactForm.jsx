@@ -223,8 +223,9 @@ const handleChange = (e) => {
                   error={errors.companyId}
                 >
                   <option value="">Select a company</option>
-                  {companies.map((company) => (
+{companies.map((company) => (
                     <option key={company.Id} value={company.Id}>
+                      {company.Name || company.name}
                       {company.name}
                     </option>
                   ))}

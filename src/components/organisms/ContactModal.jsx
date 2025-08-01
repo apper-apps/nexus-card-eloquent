@@ -21,8 +21,8 @@ const ContactModal = ({ contact, companies = [], activities = [], onClose, onEdi
   if (!contact) return null;
 
   const getCompanyName = (companyId) => {
-    const company = companies.find(c => c.Id === companyId);
-    return company ? company.name : "No Company";
+const company = companies.find(c => c.Id === companyId);
+    return company ? (company.Name || company.name) : "No Company";
   };
 
   const getCompanyDetails = (companyId) => {
@@ -152,7 +152,7 @@ const ContactModal = ({ contact, companies = [], activities = [], onClose, onEdi
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                           <label className="block text-sm font-medium text-gray-500 mb-1">Company Name</label>
-                          <span className="text-sm text-gray-900">{company.name}</span>
+<span className="text-sm text-gray-900">{company.Name || company.name}</span>
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-500 mb-1">Industry</label>
